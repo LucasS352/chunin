@@ -37,6 +37,9 @@ app.use(
         connectSrc: ["'self'"],
         workerSrc: ["'self'"],
         manifestSrc: ["'self'"],
+        // Do not rewrite assets to HTTPS when the app is accessed directly by IP/HTTP.
+        // Behind Nginx, same-origin assets already use HTTPS automatically.
+        upgradeInsecureRequests: null,
       },
     },
     crossOriginEmbedderPolicy: false,
