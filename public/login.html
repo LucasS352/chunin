@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#11100f" />
+  <meta name="description" content="Tutu — Caminho Chūnin: acesse o aplicativo." />
+  <title>Entrar — Tutu: Caminho Chūnin</title>
+  <style>
+:root{
+  --bg:#0f0e0d;
+  --bg-2:#151310;
+  --paper:#1b1916;
+  --ink:#f1eadf;
+  --muted:#9f978d;
+  --line:#35302a;
+  --red:#d94b3d;
+  --red-dark:#7d281f;
+  --orange:#e27b38;
+  --sand:#d6bf97;
+  --green:#7aa879;
+  --shadow:0 16px 42px rgba(0,0,0,.26);
+  --display:Impact,Haettenschweiler,"Arial Narrow Bold","Arial Narrow",sans-serif;
+  --body:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:var(--body)}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(217,75,61,.1),transparent 40%),
+    radial-gradient(circle at 20% 90%,rgba(226,123,56,.06),transparent 36%),
+    linear-gradient(180deg,#11100f 0%,#0d0c0b 100%);
+  padding:16px;
+  padding-bottom:calc(16px + env(safe-area-inset-bottom));
+}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+
+.login-card{
+  width:100%;
+  max-width:380px;
+  background:linear-gradient(180deg,rgba(255,255,255,.01),transparent),var(--paper);
+  border:1px solid #35302a;
+  box-shadow:var(--shadow);
+  padding:36px 28px 32px;
+  position:relative;
+  clip-path:polygon(0 10px,5% 4px,12% 8px,22% 2px,35% 6px,48% 0,62% 5px,75% 1px,88% 4px,100% 0,100% calc(100% - 6px),93% 100%,80% calc(100% - 3px),66% 100%,50% calc(100% - 4px),34% 100%,18% calc(100% - 2px),5% 100%,0 calc(100% - 7px));
+}
+
+/* Marca */
+.brand-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin-bottom:28px;
+}
+.sharingan-logo{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  border-radius:50%;
+  margin-bottom:12px;
+  filter:drop-shadow(0 0 12px rgba(217,75,61,.5));
+}
+.brand-title{
+  font-family:var(--display);
+  font-size:30px;
+  letter-spacing:.05em;
+  font-weight:800;
+  line-height:1;
+  color:var(--ink);
+}
+.brand-subtitle{
+  font-size:9px;
+  letter-spacing:.22em;
+  color:var(--muted);
+  font-weight:900;
+  margin-top:6px;
+  text-transform:uppercase;
+}
+.brand-tagline{
+  margin-top:14px;
+  font-size:12px;
+  color:var(--sand);
+  font-style:italic;
+  line-height:1.4;
+  border-left:2px solid var(--red);
+  padding-left:10px;
+  text-align:left;
+  width:100%;
+}
+
+/* Formulário */
+.form-group{margin-top:18px}
+.field-label{
+  display:block;
+  color:#cfc5b9;
+  font-size:11px;
+  letter-spacing:.12em;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+input[type=text],input[type=password]{
+  width:100%;
+  border-radius:2px;
+  border:1px solid #3a342d;
+  background:#11100e;
+  color:var(--ink);
+  padding:14px 13px;
+  font:inherit;
+  font-size:16px; /* evita zoom no iOS */
+  outline:none;
+  -webkit-appearance:none;
+  appearance:none;
+}
+input[type=text]:focus,input[type=password]:focus{
+  border-color:#a64a38;
+  box-shadow:0 0 0 2px rgba(217,75,61,.15);
+}
+input::placeholder{color:#5c5550}
+
+.submit-btn{
+  width:100%;
+  margin-top:24px;
+  padding:15px;
+  background:var(--red);
+  color:#fff4eb;
+  border:1px solid #ef695a;
+  border-radius:3px;
+  font:inherit;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.2);
+  -webkit-tap-highlight-color:transparent;
+  transition:opacity .15s;
+}
+.submit-btn:active{transform:translateY(1px);opacity:.9}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* Erro */
+.error-msg{
+  display:none;
+  margin-top:14px;
+  padding:10px 12px;
+  background:#24110f;
+  border:1px solid #58241e;
+  color:#ee8d82;
+  font-size:12px;
+  line-height:1.4;
+  border-radius:2px;
+}
+.error-msg.show{display:block}
+
+/* Loading */
+.loading-bar{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:2px;
+  background:var(--red);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+  z-index:1000;
+}
+.loading-bar.active{transform:scaleX(0.7)}
+.loading-bar.done{transform:scaleX(1);transition:transform .15s ease}
+
+/* Footer de segurança */
+.secure-note{
+  margin-top:22px;
+  text-align:center;
+  font-size:10px;
+  color:#5c5550;
+  letter-spacing:.05em;
+  line-height:1.5;
+}
+
+@media(max-height:600px){
+  body{align-items:flex-start;padding-top:20px}
+  .login-card{padding:24px 22px 24px}
+  .brand-area{margin-bottom:18px}
+  .sharingan-logo{width:52px;height:52px}
+  .brand-title{font-size:24px}
+}
+@media(max-width:360px){
+  .login-card{padding:28px 18px 26px}
+}
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="loading-bar" id="loadingBar"></div>
+
+  <main class="login-card" role="main">
+    <div class="brand-area">
+      <img
+        src="/assets/sharingan.png"
+        alt="Sharingan — Logo do projeto"
+        class="sharingan-logo"
+        draggable="false"
+      />
+      <div class="brand-title">TUTU</div>
+      <div class="brand-subtitle">Caminho Chūnin</div>
+      <p class="brand-tagline">Identifique-se para entrar na vila.</p>
+    </div>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label class="field-label" for="username">Usuário</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          autocomplete="username"
+          autocapitalize="none"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="tutu"
+          maxlength="60"
+          enterkeyhint="next"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="current-password"
+          placeholder="••••••••"
+          maxlength="128"
+          enterkeyhint="done"
+          required
+        />
+      </div>
+
+      <div class="error-msg" id="errorMsg" role="alert" aria-live="polite"></div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">ENTRAR</button>
+    </form>
+
+    <p class="secure-note">Acesso restrito · Dados protegidos</p>
+  </main>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const errorMsg = document.getElementById('errorMsg');
+    const loadingBar = document.getElementById('loadingBar');
+
+    function showError(msg) {
+      errorMsg.textContent = msg;
+      errorMsg.classList.add('show');
+    }
+    function hideError() {
+      errorMsg.classList.remove('show');
+      errorMsg.textContent = '';
+    }
+    function setLoading(loading) {
+      submitBtn.disabled = loading;
+      submitBtn.textContent = loading ? 'ENTRANDO...' : 'ENTRAR';
+      loadingBar.className = loading ? 'loading-bar active' : 'loading-bar';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        showError('Preencha o usuário e a senha para continuar.');
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+          credentials: 'same-origin',
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.authenticated) {
+          loadingBar.className = 'loading-bar done';
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 200);
+        } else {
+          setLoading(false);
+          showError(data.error || 'Usuário ou senha incorretos.');
+          document.getElementById('password').value = '';
+          document.getElementById('password').focus();
+        }
+      } catch {
+        setLoading(false);
+        showError('Sem conexão com o servidor. Tente novamente.');
+      }
+    });
+
+    // Foco automático no campo usuário
+    window.addEventListener('load', () => {
+      const usernameField = document.getElementById('username');
+      // Delay pequeno para evitar conflito com teclado mobile
+      setTimeout(() => {
+        if (window.innerWidth > 480) {
+          usernameField.focus();
+        }
+      }, 300);
+    });
+  </script>
+</body>
+</html>

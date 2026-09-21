@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log*
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+backups
+*.sql
+Dockerfile*
+docker-compose*.yml
+README.md
+tutu_chunin_app_v3_standalone.html
+

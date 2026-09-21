@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Session {
+  sid    String   @id @db.VarChar(255)
+  sess   Json
+  expire DateTime @db.Timestamp(6)
+
+  @@index([expire], name: "IDX_session_expire")
+  @@map("session")
+}
+
+model AppSettings {
+  id              Int      @id @default(1)
+  projectName     String   @default("Tutu (Arthur)")
+  age             Int      @default(12)
+  startDate       String   @default("2026-09-21")
+  endDate         String   @default("2026-11-21")
+  baselinePushups Int      @default(20)
+  baselineAbs     Int      @default(100)
+  baselinePlank   Int      @default(126)
+  baselineHeight  Float    @default(150.0)
+  baselineWeight  Float    @default(50.4)
+  baselineNote    String   @default("Marco Zero do projeto.")
+  auraBonus       Int      @default(0)
+  historyFilter   String   @default("7")
+  updatedAt       DateTime @updatedAt
+}
+
+model RoutineItem {
+  id          String   @id
+  title       String
+  time        String
+  category    String
+  rank        String   @default("B")
+  auraReward  Int      @default(10)
+  daysOfWeek  Int[]
+  note        String?  @default("")
+  isFixed     Boolean  @default(false)
+  createdAt   String   @default("2026-09-21")
+  archivedAt  String?
+  updatedAt   DateTime @updatedAt
+}
+
+model MissionRecord {
+  id            String    @id @default(cuid())
+  date          String
+  routineItemId String
+  completed     Boolean   @default(true)
+  auraEarned    Int       @default(0)
+  note          String?   @default("")
+  completedAt   DateTime? @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([date, routineItemId])
+}
+
+model PhysicalAssessment {
+  id           String   @id @default(cuid())
+  date         String
+  pushups      Int?
+  abs          Int?
+  plankSeconds Int?
+  height       Float?
+  weight       Float?
+  observation  String?  @default("")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model DailyCheckin {
+  id          String   @id @default(cuid())
+  date        String   @unique
+  mood        String?
+  energy      Int?
+  observation String?  @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Challenge {
+  id          String   @id @default(cuid())
+  title       String
+  dueDate     String
+  rank        String   @default("B")
+  auraReward  Int      @default(15)
+  note        String?  @default("")
+  completed   Boolean  @default(false)
+  completedAt String?
+  createdAt   String
+  updatedAt   DateTime @updatedAt
+}
+
+model WeekPlan {
+  id        String   @id @default(cuid())
+  weekStart String   @unique
+  plannedAt String
+  itemCount Int      @default(0)
+  confirmed Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
