@@ -21,7 +21,7 @@ services:
     container_name: tutu_app
     restart: unless-stopped
     ports:
-      - "${PORT:-3000}:3000"
+      - "3555:3000"
     environment:
       DATABASE_URL: postgresql://tutu:tutupassword@db:5432/tutu_db?schema=public
       APP_USERNAME: ${APP_USERNAME:-tutu}

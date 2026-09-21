@@ -59,7 +59,6 @@ DATABASE_URL=postgresql://tutu:tutupassword@db:5432/tutu_db?schema=public
 APP_USERNAME=tutu
 APP_PASSWORD=1234
 SESSION_SECRET=troque_por_uma_chave_aleatoria_longa
-PORT=3000
 NODE_ENV=production
 ```
 
@@ -76,12 +75,12 @@ O app vai:
 2. Aguardar o banco estar saudável (healthcheck).
 3. Executar `prisma migrate deploy` automaticamente.
 4. Criar o usuário `tutu` com a senha em hash.
-5. Iniciar o servidor na porta `3000`.
+5. Iniciar o servidor internamente na porta `3000`, publicado na porta `3555` do servidor.
 
 ### 3. Acesse
 
 ```
-http://localhost:3000
+http://localhost:3555
 ```
 
 ---
@@ -101,11 +100,11 @@ http://localhost:3000
 | `APP_PASSWORD` | `1234` (ou sua senha) |
 | `SESSION_SECRET` | uma string aleatória longa |
 | `NODE_ENV` | `production` |
-| `PORT` | `3000` |
 
 5. Clique em **Deploy the stack**
 
 > 📝 O `DATABASE_URL` já está embutido no `docker-compose.yml` apontando para o serviço `db` interno.
+> O acesso externo é feito pela porta `3555`: `http://IP-DO-SERVIDOR:3555`.
 
 ---
 
