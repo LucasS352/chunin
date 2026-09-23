@@ -57,13 +57,13 @@ Edite o `.env`:
 ```env
 DATABASE_URL=postgresql://tutu:tutupassword@db:5432/tutu_db?schema=public
 APP_USERNAME=tutu
-APP_PASSWORD=1234
+APP_PASSWORD=defina_uma_senha_forte_com_8_ou_mais_caracteres
 ADMIN_PASSWORD=defina_uma_senha_separada_para_o_sensei
-SESSION_SECRET=troque_por_uma_chave_aleatoria_longa
+SESSION_SECRET=gere_uma_chave_aleatoria_unica_com_32_ou_mais_caracteres
 NODE_ENV=production
 ```
 
-> ⚠️ **Importante:** Troque `SESSION_SECRET` por uma string aleatória longa e segura em produção.
+> ⚠️ **Importante:** em produção, o aplicativo não inicia com senha padrão, sem `ADMIN_PASSWORD`, com senhas administrativa e de acesso iguais ou com `SESSION_SECRET` insegura.
 
 ### 2. Suba os containers
 
@@ -98,9 +98,9 @@ http://localhost:3555
 | Variável | Valor |
 |---|---|
 | `APP_USERNAME` | `tutu` |
-| `APP_PASSWORD` | `1234` (ou sua senha) |
-| `ADMIN_PASSWORD` | senha exclusiva do responsável para editar insígnias |
-| `SESSION_SECRET` | uma string aleatória longa |
+| `APP_PASSWORD` | senha de acesso com pelo menos 8 caracteres; não use `1234` |
+| `ADMIN_PASSWORD` | senha exclusiva do responsável, diferente de `APP_PASSWORD` |
+| `SESSION_SECRET` | chave aleatória única com pelo menos 32 caracteres |
 | `NODE_ENV` | `production` |
 
 5. Clique em **Deploy the stack**
@@ -122,7 +122,7 @@ http://localhost:3555
 ```env
 DATABASE_URL=postgresql://tutu:tutupassword@localhost:5432/tutu_db?schema=public
 APP_USERNAME=tutu
-APP_PASSWORD=1234
+APP_PASSWORD=senha_local
 ADMIN_PASSWORD=senha_local_do_sensei
 SESSION_SECRET=segredo_dev
 PORT=3000

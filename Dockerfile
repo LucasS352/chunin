@@ -14,4 +14,6 @@ COPY public ./public
 
 EXPOSE 3000
 
+USER node
+
 CMD ["sh", "-c", "npx prisma migrate deploy && node src/server.js"]
