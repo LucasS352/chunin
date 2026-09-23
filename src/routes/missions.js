@@ -51,9 +51,21 @@ router.patch('/:id', async (req, res) => {
       },
     });
 
-    const isCompleted = completed !== undefined ? Boolean(completed) : existing ? existing.completed : true;
+    const completionSupplied = completed !== undefined;
+    const noteSupplied = note !== undefined;
+    const isCompleted = completionSupplied ? Boolean(completed) : existing ? existing.completed : true;
     const earned = isCompleted ? (Number(auraEarned) || (existing ? existing.auraEarned : 0)) : 0;
-    const finalNote = note !== undefined ? String(note).trim() : existing ? existing.note : '';
+    const finalNote = noteSupplied ? String(note).trim() : existing ? existing.note : '';
+
+    const updateData = {};
+    if (completionSupplied) {
+      updateData.completed = isCompleted;
+      updateData.auraEarned = earned;
+      updateData.completedAt = isCompleted ? (existing?.completedAt || new Date()) : null;
+    }
+    if (noteSupplied) {
+      updateData.note = finalNote;
+    }
 
     const record = await prisma.missionRecord.upsert({
       where: {
@@ -62,12 +74,7 @@ router.patch('/:id', async (req, res) => {
           routineItemId,
         },
       },
-      update: {
-        completed: isCompleted,
-        auraEarned: earned,
-        note: finalNote,
-        completedAt: isCompleted ? (existing?.completedAt || new Date()) : null,
-      },
+      update: updateData,
       create: {
         date,
         routineItemId,

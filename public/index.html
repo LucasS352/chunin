@@ -486,6 +486,7 @@ let route = 'home';
 let editingRoutineId = null;
 let _isOnline = navigator.onLine;
 let badgeAdminUnlocked = false;
+let missionTogglePending = false;
 
 window.addEventListener('online', () => { _isOnline = true; document.getElementById('offlineBar')?.classList.remove('show'); });
 window.addEventListener('offline', () => { _isOnline = false; document.getElementById('offlineBar')?.classList.add('show'); });
@@ -679,18 +680,20 @@ function setupHome(){
   if(!items.length) list.innerHTML='<div class="empty-state">Nenhuma missão foi programada para hoje.<br>Monte a rotina e o painel cuida do resto.</div>';
   else list.innerHTML=items.map(item=>missionHtml(item,dateKey())).join('');
 
-  list.addEventListener('click',async e=>{
+  list.onclick=async e=>{
     const btn=e.target.closest('[data-mission-id]');
-    if(!btn) return;
+    if(!btn||missionTogglePending) return;
     const itemId=btn.dataset.missionId;
     const key=dateKey();
     const item=[...(data.routine||[]),...(data.archivedRoutine||[])].find(r=>r.id===itemId);
     if(!item) return;
     const next=!isDone(itemId,key);
+    const ledgerKey=`${key}|${itemId}`;
+    const previousLedger=data.auraLedger?.[ledgerKey];
+    missionTogglePending=true;
     // Optimistic update
     if(!data.completions[key]) data.completions[key]={};
     data.completions[key][itemId]=next;
-    const ledgerKey=`${key}|${itemId}`;
     if(next){ data.auraLedger[ledgerKey]=Number(item.aura||0); }
     else { delete data.auraLedger[ledgerKey]; }
     setupHome();
@@ -698,10 +701,19 @@ function setupHome(){
     const result = await api('PATCH',`/api/missions/${itemId}`,{
       date:key, completed:next, auraEarned:next?Number(item.aura||0):0
     });
-    if(result?.state) { Object.assign(data,result.state); setupHome(); checkForLevelUp(); }
-  });
+    if(result?.state){
+      Object.assign(data,result.state);
+    }else{
+      data.completions[key][itemId]=!next;
+      if(previousLedger==null) delete data.auraLedger[ledgerKey];
+      else data.auraLedger[ledgerKey]=previousLedger;
+    }
+    missionTogglePending=false;
+    setupHome();
+    if(result?.state) checkForLevelUp();
+  };
 
-  list.addEventListener('change',async e=>{
+  list.onchange=async e=>{
     if(!e.target.matches('[data-mission-note]')) return;
     const itemId=e.target.dataset.missionNote;
     const key=dateKey();
@@ -710,7 +722,7 @@ function setupHome(){
     if(!data.missionNotes[key]) data.missionNotes[key]={};
     data.missionNotes[key][itemId]=value;
     await api('PATCH',`/api/missions/${itemId}`,{ date:key, note:value });
-  });
+  };
 
   renderSpecialMissionHome();
   setupCheckin();
@@ -720,7 +732,7 @@ function setupHome(){
 function missionHtml(item,key){
   const done=isDone(item.id,key),rank=getMissionRank(item),note=getMissionNote(item.id,key);
   return `<div class="mission-item ${done?'done':''}">
-    <button class="mission-check" data-mission-id="${item.id}" aria-label="${done?'Desmarcar':'Concluir'} missão">${done?'✓':''}</button>
+    <button class="mission-check" data-mission-id="${item.id}" aria-label="${done?'Desmarcar':'Concluir'} missão" ${missionTogglePending?'disabled':''}>${done?'✓':''}</button>
     <div><div class="mission-title">${escapeHtml(item.title)}</div><div class="mission-meta">${item.time} · ${categoryLabels[item.category]||'Outro'}${item.note?` · ${escapeHtml(item.note)}`:''}</div><input class="mission-note-input" data-mission-note="${item.id}" value="${escapeHtml(note)}" placeholder="Observação desta missão (opcional)" /></div>
     <div class="mission-rank">${rank}<small>+${item.aura}</small></div>
   </div>`;
