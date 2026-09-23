@@ -25,13 +25,6 @@ async function initUserAndSettings() {
       },
     });
     console.log(`[AUTH] Usuário inicial '${username}' criado com sucesso.`);
-  } else if (!(await bcrypt.compare(rawPassword, existingUser.passwordHash))) {
-    const passwordHash = await bcrypt.hash(rawPassword, 12);
-    await prisma.user.update({
-      where: { id: existingUser.id },
-      data: { passwordHash },
-    });
-    console.log(`[AUTH] Senha do usuário '${username}' sincronizada com APP_PASSWORD.`);
   }
 
   // 2. Ensure AppSettings exists

@@ -25,7 +25,7 @@ services:
     environment:
       DATABASE_URL: postgresql://tutu:tutupassword@db:5432/tutu_db?schema=public
       APP_USERNAME: ${APP_USERNAME:-tutu}
-      APP_PASSWORD: ${APP_PASSWORD:-}
+      APP_PASSWORD: ${APP_PASSWORD:-1234}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
       SESSION_SECRET: ${SESSION_SECRET:-}
       NODE_ENV: ${NODE_ENV:-production}
