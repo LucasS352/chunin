@@ -73,6 +73,7 @@ async function getFullState() {
     checkins[c.date] = {
       mood: c.mood || '',
       energy: c.energy != null ? c.energy : null,
+      observation: c.observation || '',
     };
     if (c.observation) {
       notes[c.date] = c.observation;
