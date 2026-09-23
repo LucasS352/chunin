@@ -58,6 +58,7 @@ Edite o `.env`:
 DATABASE_URL=postgresql://tutu:tutupassword@db:5432/tutu_db?schema=public
 APP_USERNAME=tutu
 APP_PASSWORD=1234
+ADMIN_PASSWORD=defina_uma_senha_separada_para_o_sensei
 SESSION_SECRET=troque_por_uma_chave_aleatoria_longa
 NODE_ENV=production
 ```
@@ -98,6 +99,7 @@ http://localhost:3555
 |---|---|
 | `APP_USERNAME` | `tutu` |
 | `APP_PASSWORD` | `1234` (ou sua senha) |
+| `ADMIN_PASSWORD` | senha exclusiva do responsável para editar insígnias |
 | `SESSION_SECRET` | uma string aleatória longa |
 | `NODE_ENV` | `production` |
 
@@ -121,6 +123,7 @@ http://localhost:3555
 DATABASE_URL=postgresql://tutu:tutupassword@localhost:5432/tutu_db?schema=public
 APP_USERNAME=tutu
 APP_PASSWORD=1234
+ADMIN_PASSWORD=senha_local_do_sensei
 SESSION_SECRET=segredo_dev
 PORT=3000
 NODE_ENV=development
@@ -229,6 +232,16 @@ O app sincroniza ao:
 - **Salvar qualquer informação** (cada ação persiste imediatamente na API)
 
 Não é necessário WebSocket nesta versão.
+
+---
+
+## Níveis e Insígnias
+
+- O símbolo ao lado da Aura evolui automaticamente conforme a patente muda.
+- Ao alcançar uma patente inédita, o app mostra uma animação comemorativa uma única vez em cada dispositivo.
+- As insígnias aparecem no painel e na área **Projeto**.
+- Criar, editar ou remover insígnias exige a variável `ADMIN_PASSWORD`; o desbloqueio vale por 10 minutos apenas naquela sessão.
+- A senha administrativa deve ser diferente da senha usada pelo aprendiz para entrar no aplicativo.
 
 ---
 

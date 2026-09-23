@@ -119,6 +119,11 @@ async function getFullState() {
     };
   }
 
+  const badges = await prisma.badge.findMany({
+    orderBy: [{ sortOrder: 'asc' }, { createdAt: 'asc' }],
+    select: { id: true, emoji: true, title: true, description: true },
+  });
+
   return {
     profile: {
       name: settings.projectName,
@@ -147,6 +152,7 @@ async function getFullState() {
     progress,
     specialMissions,
     weekPlans,
+    badges,
     historyFilter: settings.historyFilter === 'all' ? 'all' : Number(settings.historyFilter) || 7,
     auraBonus: settings.auraBonus || 0,
     serverTime: new Date().toISOString(),

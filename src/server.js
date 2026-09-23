@@ -15,6 +15,7 @@ const assessmentsRouter = require('./routes/assessments');
 const checkinsRouter = require('./routes/checkins');
 const challengesRouter = require('./routes/challenges');
 const syncRouter = require('./routes/sync');
+const badgesRouter = require('./routes/badges');
 
 const { requireAuth, requirePageAuth, redirectIfAuthenticated } = require('./middleware/auth');
 const { initUserAndSettings } = require('./services/authService');
@@ -97,6 +98,15 @@ const loginLimiter = rateLimit({
   skipSuccessfulRequests: true,
 });
 
+const adminUnlockLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: { error: 'Muitas tentativas. Aguarde alguns minutos antes de tentar novamente.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+  skipSuccessfulRequests: true,
+});
+
 // ============================================================
 // Static Files
 // ============================================================
@@ -130,6 +140,8 @@ app.use('/api/assessments', requireAuth, assessmentsRouter);
 app.use('/api/checkins', requireAuth, checkinsRouter);
 app.use('/api/challenges', requireAuth, challengesRouter);
 app.use('/api/sync', requireAuth, syncRouter);
+app.use('/api/badges/unlock', adminUnlockLimiter);
+app.use('/api/badges', requireAuth, badgesRouter);
 
 // ============================================================
 // Health Check
