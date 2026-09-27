@@ -62,6 +62,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .aura-panel{border-left:1px solid #453830;padding-left:18px;min-height:130px;display:flex;flex-direction:column;justify-content:flex-end}.aura-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.level-emblem{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#4b2a20,#171311 68%);border:1px solid #8f4938;box-shadow:0 0 0 4px rgba(217,75,61,.05),0 0 18px rgba(226,123,56,.13);font-size:27px;position:relative}.level-emblem:after{content:"";position:absolute;inset:5px;border:1px dashed rgba(214,191,151,.24);border-radius:50%}.level-emblem span{position:relative;z-index:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
 .aura-label{font-size:10px;letter-spacing:.25em;color:var(--orange);font-weight:900}.aura-panel strong{font-family:var(--display);font-size:58px;line-height:1;margin:4px 0 8px}.aura-panel small{color:var(--muted);font-size:10px;margin-top:7px}.aura-progress{height:5px;background:#302a24;overflow:hidden}.aura-progress i{display:block;height:100%;width:0;background:var(--red);transition:width .25s ease}
 .summary-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-soft);border-top:0;background:#141210;margin:0 4px 14px}.summary-strip div{padding:13px 14px;border-right:1px solid var(--line-soft)}.summary-strip div:last-child{border-right:0}.summary-strip span{display:block;font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}.summary-strip strong{display:block;margin-top:3px;font-size:17px}
+.week-calendar{margin:0 4px 14px;padding:12px 13px 13px;border:1px solid #44372e;background:linear-gradient(105deg,rgba(226,123,56,.055),transparent 48%),#151310}.week-calendar-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.week-calendar-title span{display:block;color:var(--orange);font-size:8px;letter-spacing:.18em;font-weight:900}.week-calendar-title strong{display:block;margin-top:2px;font-size:13px}.week-calendar-actions{display:flex;gap:4px;align-items:center}.calendar-nav{min-width:34px;height:34px;border:1px solid #443b33;background:#12100f;color:#b7ada2;border-radius:2px;font-weight:900}.calendar-today{height:34px;border:1px solid #573c31;background:#241713;color:#e5b69b;border-radius:2px;padding:0 10px;font-size:9px;font-weight:900;letter-spacing:.07em}.week-calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.calendar-day{position:relative;min-width:0;padding:8px 3px 7px;border:1px solid #39332d;background:#11100e;color:#8f877e;border-radius:2px;text-align:center;-webkit-tap-highlight-color:transparent}.calendar-day span,.calendar-day strong,.calendar-day small{display:block}.calendar-day span{font-size:8px;text-transform:uppercase;letter-spacing:.08em}.calendar-day strong{font-family:var(--display);font-size:21px;line-height:1;margin:4px 0}.calendar-day small{font-size:8px;color:#716a62;white-space:nowrap}.calendar-day.has-progress:after{content:"";position:absolute;left:20%;right:20%;bottom:3px;height:2px;background:#8d4134}.calendar-day.complete:after{background:var(--green)}.calendar-day.today{border-color:#725142}.calendar-day.today span{color:var(--orange)}.calendar-day.selected{background:#3b201a;border-color:#b6503f;color:#fff1e7;box-shadow:inset 0 -2px 0 #d95b48}.calendar-day.selected small{color:#e5b69b}.calendar-day.future{opacity:.58}.mission-item.future .mission-check{opacity:.45;cursor:not-allowed}.mission-item.future .mission-note-input{opacity:.5;cursor:not-allowed}
 .badge-shelf{display:flex;align-items:center;gap:12px;padding:11px 14px;margin:0 4px 14px;border:1px solid #47372d;background:linear-gradient(90deg,rgba(226,123,56,.06),transparent 55%),#151310;overflow:hidden}.badge-shelf[hidden]{display:none}.badge-shelf-label{min-width:max-content}.badge-shelf-label span{display:block;color:var(--orange);font-size:8px;letter-spacing:.17em;font-weight:900}.badge-shelf-label strong{font-size:12px}.badge-row{display:flex;gap:7px;overflow-x:auto;padding:3px 1px;scrollbar-width:thin}.badge-token{flex:0 0 auto;width:44px;height:44px;display:grid;place-items:center;border:1px solid #5a4739;background:#11100e;font-size:23px;transform:rotate(-2deg);box-shadow:inset 0 0 12px rgba(214,191,151,.04)}.badge-token:nth-child(even){transform:rotate(2deg)}
 .paper-card{background:linear-gradient(180deg,rgba(255,255,255,.008),transparent),var(--paper);border:1px solid var(--line);padding:18px;margin-bottom:12px;box-shadow:0 8px 26px rgba(0,0,0,.12);position:relative}.paper-card h2{margin:0;font-size:20px}.section-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
 .page-head{padding:12px 3px 17px}.page-head h1{font-size:42px;line-height:.98;margin:6px 0 9px}.page-head p:last-child{color:var(--muted);max-width:640px;margin:0;line-height:1.5}
@@ -115,7 +116,7 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
 .offline-bar.show{display:block}
 
 @media(max-width:620px){
-  .hero-card{grid-template-columns:1fr;padding:21px 18px}.hero-card:after{right:-20px}.aura-panel{border-left:0;border-top:1px solid #453830;padding:13px 0 0;min-height:0;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"badge value" "bar bar" "small small";align-items:end}.aura-top{grid-area:badge;justify-content:flex-start}.aura-top .aura-label{display:none}.level-emblem{width:45px;height:45px;font-size:23px}.aura-panel strong{grid-area:value;font-size:42px;text-align:right}.aura-progress{grid-area:bar}.aura-panel small{grid-area:small}.summary-strip div{padding:11px 9px}.summary-strip strong{font-size:15px}.badge-shelf{align-items:flex-start;flex-direction:column}.form-grid,.checkin-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.days-fieldset{grid-column:auto}.metric-grid{grid-template-columns:repeat(2,1fr)}.compare-grid{grid-template-columns:1fr}.achievement-grid{grid-template-columns:1fr}.badge-gallery{grid-template-columns:1fr}.special-banner{grid-template-columns:40px 1fr}.special-banner button{grid-column:1/-1}.routine-item{grid-template-columns:52px 1fr auto}.page-head h1{font-size:36px}.mini-calendar{grid-template-columns:repeat(7,1fr);row-gap:8px}.progress-entry{grid-template-columns:1fr;gap:3px}.brand small{display:none}.project-chip{font-size:9px}.view{padding-left:11px;padding-right:11px}
+  .hero-card{grid-template-columns:1fr;padding:21px 18px}.hero-card:after{right:-20px}.aura-panel{border-left:0;border-top:1px solid #453830;padding:13px 0 0;min-height:0;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"badge value" "bar bar" "small small";align-items:end}.aura-top{grid-area:badge;justify-content:flex-start}.aura-top .aura-label{display:none}.level-emblem{width:45px;height:45px;font-size:23px}.aura-panel strong{grid-area:value;font-size:42px;text-align:right}.aura-progress{grid-area:bar}.aura-panel small{grid-area:small}.summary-strip div{padding:11px 9px}.summary-strip strong{font-size:15px}.week-calendar{padding:11px 8px}.week-calendar-head{align-items:flex-end}.calendar-today{padding:0 7px}.week-calendar-days{gap:3px}.calendar-day{padding:7px 1px 6px}.calendar-day strong{font-size:18px}.calendar-day small{font-size:7px}.badge-shelf{align-items:flex-start;flex-direction:column}.form-grid,.checkin-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.days-fieldset{grid-column:auto}.metric-grid{grid-template-columns:repeat(2,1fr)}.compare-grid{grid-template-columns:1fr}.achievement-grid{grid-template-columns:1fr}.badge-gallery{grid-template-columns:1fr}.special-banner{grid-template-columns:40px 1fr}.special-banner button{grid-column:1/-1}.routine-item{grid-template-columns:52px 1fr auto}.page-head h1{font-size:36px}.mini-calendar{grid-template-columns:repeat(7,1fr);row-gap:8px}.progress-entry{grid-template-columns:1fr;gap:3px}.brand small{display:none}.project-chip{font-size:9px}.view{padding-left:11px;padding-right:11px}
   .logout-btn{font-size:9px;padding:5px 7px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
@@ -222,6 +223,18 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
       <div><span>Projeto</span><strong id="projectProgressText">1/62</strong></div>
     </section>
 
+    <section class="week-calendar" aria-label="Calendário semanal">
+      <div class="week-calendar-head">
+        <div class="week-calendar-title"><span>AGENDA</span><strong id="homeWeekRange">Esta semana</strong></div>
+        <div class="week-calendar-actions">
+          <button class="calendar-nav" id="previousHomeWeek" type="button" aria-label="Semana anterior">‹</button>
+          <button class="calendar-today" id="goHomeToday" type="button">HOJE</button>
+          <button class="calendar-nav" id="nextHomeWeek" type="button" aria-label="Próxima semana">›</button>
+        </div>
+      </div>
+      <div class="week-calendar-days" id="homeWeekDays"></div>
+    </section>
+
     <section class="badge-shelf" id="homeBadgeShelf" hidden>
       <div class="badge-shelf-label"><span>CONQUISTAS</span><strong>Insígnias</strong></div>
       <div class="badge-row" id="homeBadgeRow"></div>
@@ -231,13 +244,13 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
 
     <section class="paper-card">
       <div class="section-title">
-        <div><p class="kicker">LISTA DO DIA</p><h2>Missões</h2></div>
+        <div><p class="kicker" id="missionDayKicker">LISTA DO DIA</p><h2 id="missionDayTitle">Missões de hoje</h2></div>
         <button class="text-btn" data-route-jump="routine">Editar rotina</button>
       </div>
       <div id="todayMissions" class="mission-list"></div>
     </section>
 
-    <section class="paper-card checkin-card">
+    <section class="paper-card checkin-card" id="homeCheckinCard">
       <div class="section-title">
         <div><p class="kicker">CHECK-IN</p><h2>Fechamento do dia</h2></div>
         <span class="stamp">1 MIN</span>
@@ -487,6 +500,8 @@ let editingRoutineId = null;
 let _isOnline = navigator.onLine;
 let badgeAdminUnlocked = false;
 let missionTogglePending = false;
+let selectedHomeDate = dateKey();
+let homeWeekStartKey = dateKey(mondayOfWeek());
 
 window.addEventListener('online', () => { _isOnline = true; document.getElementById('offlineBar')?.classList.remove('show'); });
 window.addEventListener('offline', () => { _isOnline = false; document.getElementById('offlineBar')?.classList.add('show'); });
@@ -662,6 +677,33 @@ function bindRouteJumps(){ document.querySelectorAll('[data-route-jump]').forEac
 // ================================================================
 // HOME
 // ================================================================
+function shiftDateKey(key,amount){const d=parseLocalDate(key);d.setDate(d.getDate()+amount);return dateKey(d)}
+function capitalize(text=''){return text.charAt(0).toUpperCase()+text.slice(1)}
+function selectedDateHeading(key){
+  if(key===dateKey())return'Missões de hoje';
+  if(key===shiftDateKey(dateKey(),-1))return'Missões de ontem';
+  if(key===shiftDateKey(dateKey(),1))return'Missões de amanhã';
+  return `Missões de ${formatShortDate(key)}`;
+}
+function renderHomeCalendar(){
+  const start=parseLocalDate(homeWeekStartKey),end=new Date(start);end.setDate(end.getDate()+6);
+  document.getElementById('homeWeekRange').textContent=`${formatShortDate(homeWeekStartKey)} — ${formatShortDate(dateKey(end))}`;
+  const days=[];
+  for(let i=0;i<7;i++){
+    const d=new Date(start);d.setDate(d.getDate()+i);
+    const key=dateKey(d),ratio=dailyRatio(key),isToday=key===dateKey(),isSelected=key===selectedHomeDate,isFuture=key>dateKey();
+    const weekday=d.toLocaleDateString('pt-BR',{weekday:'short'}).replace('.','');
+    const progressClass=ratio.done?(ratio.done===ratio.total?' complete':' has-progress'):'';
+    const count=ratio.total?`${ratio.done}/${ratio.total}`:'—';
+    days.push(`<button type="button" class="calendar-day${isToday?' today':''}${isSelected?' selected':''}${isFuture?' future':''}${progressClass}" data-home-date="${key}" aria-pressed="${isSelected}"><span>${escapeHtml(weekday)}</span><strong>${d.getDate()}</strong><small>${count}</small></button>`);
+  }
+  document.getElementById('homeWeekDays').innerHTML=days.join('');
+  document.querySelectorAll('[data-home-date]').forEach(button=>button.onclick=()=>{selectedHomeDate=button.dataset.homeDate;setupHome()});
+  document.getElementById('previousHomeWeek').onclick=()=>{homeWeekStartKey=shiftDateKey(homeWeekStartKey,-7);setupHome()};
+  document.getElementById('nextHomeWeek').onclick=()=>{homeWeekStartKey=shiftDateKey(homeWeekStartKey,7);setupHome()};
+  document.getElementById('goHomeToday').onclick=()=>{selectedHomeDate=dateKey();homeWeekStartKey=dateKey(mondayOfWeek());setupHome()};
+}
+
 function setupHome(){
   const aura=totalAura(),lvl=auraLevel(),lvlProgress=auraLevelProgress();
   document.getElementById('auraValue').textContent=aura;
@@ -674,17 +716,20 @@ function setupHome(){
   document.getElementById('examCountdown').textContent=daysToExam()===0?'Dia do exame':`${daysToExam()} dias para o exame`;
   document.getElementById('projectProgressText').textContent=`${projectDay()}/${projectTotalDays()}`;
   renderHomeBadges();
+  renderHomeCalendar();
 
-  const items=getTodayItems(),list=document.getElementById('todayMissions'),score=dailyRatio(dateKey());
-  document.getElementById('todayScore').textContent=`${score.done}/${score.total}`;
-  if(!items.length) list.innerHTML='<div class="empty-state">Nenhuma missão foi programada para hoje.<br>Monte a rotina e o painel cuida do resto.</div>';
-  else list.innerHTML=items.map(item=>missionHtml(item,dateKey())).join('');
+  const key=selectedHomeDate,items=itemsForDate(key),list=document.getElementById('todayMissions'),todayScore=dailyRatio(dateKey()),selectedDay=parseLocalDate(key);
+  document.getElementById('todayScore').textContent=`${todayScore.done}/${todayScore.total}`;
+  document.getElementById('missionDayTitle').textContent=selectedDateHeading(key);
+  document.getElementById('missionDayKicker').textContent=`${capitalize(selectedDay.toLocaleDateString('pt-BR',{weekday:'long'}))} • ${formatDate(key)}`;
+  if(!items.length) list.innerHTML=`<div class="empty-state">Nenhuma missão programada para ${key===dateKey()?'hoje':'esta data'}.<br>Você pode organizar os dias na Rotina.</div>`;
+  else list.innerHTML=items.map(item=>missionHtml(item,key)).join('');
 
   list.onclick=async e=>{
     const btn=e.target.closest('[data-mission-id]');
     if(!btn||missionTogglePending) return;
     const itemId=btn.dataset.missionId;
-    const key=dateKey();
+    const key=selectedHomeDate;
     const item=[...(data.routine||[]),...(data.archivedRoutine||[])].find(r=>r.id===itemId);
     if(!item) return;
     const next=!isDone(itemId,key);
@@ -716,7 +761,7 @@ function setupHome(){
   list.onchange=async e=>{
     if(!e.target.matches('[data-mission-note]')) return;
     const itemId=e.target.dataset.missionNote;
-    const key=dateKey();
+    const key=selectedHomeDate;
     const value=e.target.value.trim();
     if(!data.missionNotes) data.missionNotes={};
     if(!data.missionNotes[key]) data.missionNotes[key]={};
@@ -725,15 +770,17 @@ function setupHome(){
   };
 
   renderSpecialMissionHome();
-  setupCheckin();
+  const checkinCard=document.getElementById('homeCheckinCard');
+  checkinCard.hidden=selectedHomeDate!==dateKey();
+  if(!checkinCard.hidden)setupCheckin();
   document.getElementById('shareProgress').onclick=shareProgress;
 }
 
 function missionHtml(item,key){
-  const done=isDone(item.id,key),rank=getMissionRank(item),note=getMissionNote(item.id,key);
-  return `<div class="mission-item ${done?'done':''}">
-    <button class="mission-check" data-mission-id="${item.id}" aria-label="${done?'Desmarcar':'Concluir'} missão" ${missionTogglePending?'disabled':''}>${done?'✓':''}</button>
-    <div><div class="mission-title">${escapeHtml(item.title)}</div><div class="mission-meta">${item.time} · ${categoryLabels[item.category]||'Outro'}${item.note?` · ${escapeHtml(item.note)}`:''}</div><input class="mission-note-input" data-mission-note="${item.id}" value="${escapeHtml(note)}" placeholder="Observação desta missão (opcional)" /></div>
+  const done=isDone(item.id,key),rank=getMissionRank(item),note=getMissionNote(item.id,key),future=key>dateKey();
+  return `<div class="mission-item ${done?'done':''}${future?' future':''}">
+    <button class="mission-check" data-mission-id="${item.id}" aria-label="${future?'Missão futura':done?'Desmarcar':'Concluir'} missão" ${(missionTogglePending||future)?'disabled':''}>${done?'✓':''}</button>
+    <div><div class="mission-title">${escapeHtml(item.title)}</div><div class="mission-meta">${item.time} · ${categoryLabels[item.category]||'Outro'}${item.note?` · ${escapeHtml(item.note)}`:''}${future?' · Programada':''}</div><input class="mission-note-input" data-mission-note="${item.id}" value="${escapeHtml(note)}" placeholder="Observação desta missão (opcional)" ${future?'disabled':''}/></div>
     <div class="mission-rank">${rank}<small>+${item.aura}</small></div>
   </div>`;
 }
