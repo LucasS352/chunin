@@ -4,6 +4,21 @@ const { getFullState } = require('../services/stateService');
 
 const router = express.Router();
 
+function todayInAppTimezone() {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: process.env.APP_TIMEZONE || 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function isSenseiUnlocked(req) {
+  return Number(req.session?.badgeAdminUntil || 0) > Date.now();
+}
+
 // GET /api/missions
 router.get('/', async (req, res) => {
   try {
@@ -20,7 +35,7 @@ router.get('/', async (req, res) => {
 // GET /api/missions/today
 router.get('/today', async (req, res) => {
   try {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = todayInAppTimezone();
     const records = await prisma.missionRecord.findMany({
       where: { date: today },
     });
@@ -40,6 +55,14 @@ router.patch('/:id', async (req, res) => {
 
     if (!date) {
       return res.status(400).json({ error: 'Data obrigatória para registrar missão.' });
+    }
+
+    const today = todayInAppTimezone();
+    if (date > today) {
+      return res.status(403).json({ error: 'Missões futuras ainda não podem ser concluídas.' });
+    }
+    if (date < today && !isSenseiUnlocked(req)) {
+      return res.status(403).json({ error: 'Este dia já foi encerrado. Use a senha do Sensei para corrigir o histórico.' });
     }
 
     const existing = await prisma.missionRecord.findUnique({

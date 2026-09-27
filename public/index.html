@@ -73,6 +73,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .field-label{display:block;color:#cfc5b9;font-size:12px;margin:10px 0 7px;font-weight:800}
 input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;background:#11100e;color:var(--ink);padding:12px 12px;outline:none;font-size:16px;-webkit-appearance:none;appearance:none}input:focus,select:focus,textarea:focus{border-color:#a64a38;box-shadow:0 0 0 2px rgba(217,75,61,.1)}textarea{resize:vertical}
 .mission-list{display:grid;gap:7px}.mission-item{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line-soft)}.mission-item:last-child{border-bottom:0}.mission-item.done{opacity:.55}.mission-item.done .mission-title{text-decoration:line-through;text-decoration-thickness:1px}.mission-check{width:44px;height:44px;border-radius:2px;border:1px solid #5a5046;background:#11100e;color:#11100e;padding:0;margin-top:1px;font-weight:900;font-size:18px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.mission-item.done .mission-check{background:var(--green);border-color:#90bd8e;color:#10130e}.mission-title{font-weight:850;font-size:15px}.mission-meta{color:var(--muted);font-size:11px;margin-top:4px;line-height:1.4}.mission-rank{font-family:var(--display);font-size:18px;color:var(--sand);min-width:26px;text-align:right}.mission-rank small{display:block;font-family:var(--body);font-size:9px;color:var(--orange);font-weight:850}.mission-note-input{display:block;margin-top:8px;padding:8px 9px;font-size:14px;border-color:#302b25;background:#12100f;border-radius:2px;width:100%}
+.mission-heading-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}.date-access-status{font-size:9px;letter-spacing:.08em;color:#8e857b;border:1px solid #3c352e;padding:5px 7px}.date-access-status.locked{color:#d9a078;border-color:#5d3c2d;background:#211611}.mission-item.locked-past .mission-check{opacity:.45;cursor:not-allowed}.mission-item.locked-past .mission-note-input{opacity:.5;cursor:not-allowed}
 .empty-state{text-align:center;padding:28px 16px;color:var(--muted);border:1px dashed #39332c;line-height:1.5}
 .special-banner{background:#261713;border:1px solid #633026;padding:16px 17px;margin-bottom:12px;display:grid;grid-template-columns:46px 1fr auto;gap:12px;align-items:center}.rank-badge{width:42px;height:42px;display:grid;place-items:center;border:1px solid #8f4a38;color:#ffb08d;font-family:var(--display);font-size:23px;transform:rotate(-2deg)}.special-banner h3{margin:0 0 4px}.special-banner p{margin:0;color:#b9aa9c;font-size:12px}.special-banner button{align-self:stretch}
 .checkin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.choice-row{display:flex;gap:6px;flex-wrap:wrap}.choice-row button{background:#13110f;border:1px solid #3a342d;color:#aaa197;padding:10px 12px;border-radius:2px;font-size:13px;font-weight:800;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.choice-row button.active{background:#40221b;border-color:#a94b3b;color:#fff0e6}
@@ -83,6 +84,7 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
 .week-plan-range{display:inline-flex;align-items:center;margin-top:2px;padding:8px 10px;border-left:2px solid var(--orange);background:#15120f;color:var(--sand);font-size:12px;font-weight:850;letter-spacing:.02em}
 .week-plan-help{display:block;color:#887e73;font-size:10px;line-height:1.5;margin-top:9px}
 .weekly-test-note{margin:-4px 0 12px;font-size:11px;border-left:2px solid #5a4635;padding-left:9px}
+.routine-calendar-card{border-color:#49392f;background:linear-gradient(145deg,rgba(226,123,56,.045),transparent 45%),var(--paper)}.routine-week-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.routine-calendar-day{min-width:0;padding:10px 5px;border:1px solid #3c352e;background:#12100f;color:#8f877d;text-align:center;border-radius:2px}.routine-calendar-day span,.routine-calendar-day strong,.routine-calendar-day small{display:block}.routine-calendar-day span{font-size:8px;letter-spacing:.1em}.routine-calendar-day strong{font-family:var(--display);font-size:23px;line-height:1;margin:4px 0}.routine-calendar-day small{font-size:8px;color:#756d65}.routine-calendar-day.selected{background:#3a201a;border-color:#ad4c3c;color:#fff1e8;box-shadow:inset 0 -2px 0 var(--red)}.routine-calendar-day.today{border-color:#765344}.routine-day-agenda{margin-top:12px;border-top:1px solid #40362e}.routine-day-agenda-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 2px 5px}.routine-day-agenda-head strong{font-size:14px}.routine-day-agenda-head span{color:var(--muted);font-size:10px}.routine-calendar-entry{display:grid;grid-template-columns:54px 1fr auto;gap:10px;align-items:start;padding:9px 2px;border-top:1px solid var(--line-soft)}.routine-calendar-entry time{font-family:var(--display);font-size:18px;color:var(--sand)}.routine-calendar-entry strong{font-size:12px}.routine-calendar-entry small{display:block;color:var(--muted);font-size:9px;margin-top:2px;line-height:1.4}.routine-calendar-entry em{font-style:normal;color:var(--orange);font-size:9px;font-weight:900}
 .routine-fixed{border-color:#4a382b;background:linear-gradient(90deg,rgba(226,123,56,.04),transparent)}
 .fixed-tag{display:inline-block;margin-left:6px;padding:2px 5px;border:1px solid #574637;color:var(--orange);font-size:8px;letter-spacing:.12em;font-weight:900;vertical-align:2px}
 
@@ -116,7 +118,7 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
 .offline-bar.show{display:block}
 
 @media(max-width:620px){
-  .hero-card{grid-template-columns:1fr;padding:21px 18px}.hero-card:after{right:-20px}.aura-panel{border-left:0;border-top:1px solid #453830;padding:13px 0 0;min-height:0;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"badge value" "bar bar" "small small";align-items:end}.aura-top{grid-area:badge;justify-content:flex-start}.aura-top .aura-label{display:none}.level-emblem{width:45px;height:45px;font-size:23px}.aura-panel strong{grid-area:value;font-size:42px;text-align:right}.aura-progress{grid-area:bar}.aura-panel small{grid-area:small}.summary-strip div{padding:11px 9px}.summary-strip strong{font-size:15px}.week-calendar{padding:11px 8px}.week-calendar-head{align-items:flex-end}.calendar-today{padding:0 7px}.week-calendar-days{gap:3px}.calendar-day{padding:7px 1px 6px}.calendar-day strong{font-size:18px}.calendar-day small{font-size:7px}.badge-shelf{align-items:flex-start;flex-direction:column}.form-grid,.checkin-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.days-fieldset{grid-column:auto}.metric-grid{grid-template-columns:repeat(2,1fr)}.compare-grid{grid-template-columns:1fr}.achievement-grid{grid-template-columns:1fr}.badge-gallery{grid-template-columns:1fr}.special-banner{grid-template-columns:40px 1fr}.special-banner button{grid-column:1/-1}.routine-item{grid-template-columns:52px 1fr auto}.page-head h1{font-size:36px}.mini-calendar{grid-template-columns:repeat(7,1fr);row-gap:8px}.progress-entry{grid-template-columns:1fr;gap:3px}.brand small{display:none}.project-chip{font-size:9px}.view{padding-left:11px;padding-right:11px}
+  .hero-card{grid-template-columns:1fr;padding:21px 18px}.hero-card:after{right:-20px}.aura-panel{border-left:0;border-top:1px solid #453830;padding:13px 0 0;min-height:0;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"badge value" "bar bar" "small small";align-items:end}.aura-top{grid-area:badge;justify-content:flex-start}.aura-top .aura-label{display:none}.level-emblem{width:45px;height:45px;font-size:23px}.aura-panel strong{grid-area:value;font-size:42px;text-align:right}.aura-progress{grid-area:bar}.aura-panel small{grid-area:small}.summary-strip div{padding:11px 9px}.summary-strip strong{font-size:15px}.week-calendar{padding:11px 8px}.week-calendar-head{align-items:flex-end}.calendar-today{padding:0 7px}.week-calendar-days{gap:3px}.calendar-day{padding:7px 1px 6px}.calendar-day strong{font-size:18px}.calendar-day small{font-size:7px}.mission-heading-actions{gap:6px}.routine-week-calendar{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.routine-calendar-day{flex:0 0 76px;scroll-snap-align:start}.badge-shelf{align-items:flex-start;flex-direction:column}.form-grid,.checkin-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.days-fieldset{grid-column:auto}.metric-grid{grid-template-columns:repeat(2,1fr)}.compare-grid{grid-template-columns:1fr}.achievement-grid{grid-template-columns:1fr}.badge-gallery{grid-template-columns:1fr}.special-banner{grid-template-columns:40px 1fr}.special-banner button{grid-column:1/-1}.routine-item{grid-template-columns:52px 1fr auto}.page-head h1{font-size:36px}.mini-calendar{grid-template-columns:repeat(7,1fr);row-gap:8px}.progress-entry{grid-template-columns:1fr;gap:3px}.brand small{display:none}.project-chip{font-size:9px}.view{padding-left:11px;padding-right:11px}
   .logout-btn{font-size:9px;padding:5px 7px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
@@ -155,6 +157,20 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
       <div class="inline-actions">
         <button class="primary-btn" id="unlockBadgesBtn" type="button">Desbloquear</button>
         <button class="quiet-btn" id="cancelBadgeUnlockBtn" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-overlay" id="pastDayPasswordOverlay" hidden>
+    <div class="admin-box hand-cut">
+      <p class="kicker">CONTROLE DO SENSEI</p>
+      <h2>Corrigir dia encerrado</h2>
+      <p>As missões de dias anteriores ficam bloqueadas para proteger o histórico. Informe a senha administrativa para fazer uma correção.</p>
+      <label class="field-label" for="pastDayAdminPassword">Senha do Sensei</label>
+      <input id="pastDayAdminPassword" type="password" autocomplete="current-password" maxlength="120" />
+      <div class="inline-actions">
+        <button class="primary-btn" id="unlockPastDayBtn" type="button">Desbloquear correção</button>
+        <button class="quiet-btn" id="cancelPastDayUnlockBtn" type="button">Cancelar</button>
       </div>
     </div>
   </div>
@@ -245,7 +261,7 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
     <section class="paper-card">
       <div class="section-title">
         <div><p class="kicker" id="missionDayKicker">LISTA DO DIA</p><h2 id="missionDayTitle">Missões de hoje</h2></div>
-        <button class="text-btn" data-route-jump="routine">Editar rotina</button>
+        <div class="mission-heading-actions"><span class="date-access-status" id="missionDateStatus">HOJE</span><button class="quiet-btn" id="requestPastEditBtn" type="button" hidden>🔒 Corrigir com senha</button><button class="text-btn" data-route-jump="routine">Editar rotina</button></div>
       </div>
       <div id="todayMissions" class="mission-list"></div>
     </section>
@@ -303,6 +319,12 @@ input,select,textarea{width:100%;border-radius:2px;border:1px solid #3a342d;back
         <button id="clearRoutine" class="danger-btn" type="button">Limpar rotina</button>
       </div>
       <small class="week-plan-help">Limpar rotina remove as outras missões, mas preserva Escola, histórico e Aura já conquistada.</small>
+    </section>
+
+    <section class="paper-card routine-calendar-card">
+      <div class="section-title"><div><p class="kicker">VISÃO DETALHADA</p><h2>Calendário da semana</h2></div><span id="routineCalendarRange" class="stamp"></span></div>
+      <div class="routine-week-calendar" id="routineWeekCalendar"></div>
+      <div class="routine-day-agenda" id="routineDayAgenda"></div>
     </section>
 
     <section class="paper-card form-card">
@@ -502,6 +524,8 @@ let badgeAdminUnlocked = false;
 let missionTogglePending = false;
 let selectedHomeDate = dateKey();
 let homeWeekStartKey = dateKey(mondayOfWeek());
+let selectedRoutineDate = planningWeekStart();
+let pastMissionEditExpiresAt = 0;
 
 window.addEventListener('online', () => { _isOnline = true; document.getElementById('offlineBar')?.classList.remove('show'); });
 window.addEventListener('offline', () => { _isOnline = false; document.getElementById('offlineBar')?.classList.add('show'); });
@@ -685,6 +709,7 @@ function selectedDateHeading(key){
   if(key===shiftDateKey(dateKey(),1))return'Missões de amanhã';
   return `Missões de ${formatShortDate(key)}`;
 }
+function canEditPastMissions(){return pastMissionEditExpiresAt>Date.now()}
 function renderHomeCalendar(){
   const start=parseLocalDate(homeWeekStartKey),end=new Date(start);end.setDate(end.getDate()+6);
   document.getElementById('homeWeekRange').textContent=`${formatShortDate(homeWeekStartKey)} — ${formatShortDate(dateKey(end))}`;
@@ -722,6 +747,23 @@ function setupHome(){
   document.getElementById('todayScore').textContent=`${todayScore.done}/${todayScore.total}`;
   document.getElementById('missionDayTitle').textContent=selectedDateHeading(key);
   document.getElementById('missionDayKicker').textContent=`${capitalize(selectedDay.toLocaleDateString('pt-BR',{weekday:'long'}))} • ${formatDate(key)}`;
+  const dateStatus=document.getElementById('missionDateStatus'),pastEditButton=document.getElementById('requestPastEditBtn');
+  if(key<dateKey()){
+    const unlocked=canEditPastMissions();
+    dateStatus.textContent=unlocked?'🔓 CORREÇÃO LIBERADA':'🔒 DIA ENCERRADO';
+    dateStatus.classList.toggle('locked',!unlocked);
+    pastEditButton.hidden=unlocked;
+  }else if(key>dateKey()){
+    dateStatus.textContent='PLANEJADO';dateStatus.classList.remove('locked');pastEditButton.hidden=true;
+  }else{
+    dateStatus.textContent='HOJE';dateStatus.classList.remove('locked');pastEditButton.hidden=true;
+  }
+  pastEditButton.onclick=async()=>{
+    const status=await api('GET','/api/badges/admin-status');
+    if(status?.unlocked){pastMissionEditExpiresAt=Number(status.expiresAt)||0;setupHome();return;}
+    document.getElementById('pastDayPasswordOverlay').removeAttribute('hidden');
+    setTimeout(()=>document.getElementById('pastDayAdminPassword').focus(),0);
+  };
   if(!items.length) list.innerHTML=`<div class="empty-state">Nenhuma missão programada para ${key===dateKey()?'hoje':'esta data'}.<br>Você pode organizar os dias na Rotina.</div>`;
   else list.innerHTML=items.map(item=>missionHtml(item,key)).join('');
 
@@ -777,10 +819,10 @@ function setupHome(){
 }
 
 function missionHtml(item,key){
-  const done=isDone(item.id,key),rank=getMissionRank(item),note=getMissionNote(item.id,key),future=key>dateKey();
-  return `<div class="mission-item ${done?'done':''}${future?' future':''}">
-    <button class="mission-check" data-mission-id="${item.id}" aria-label="${future?'Missão futura':done?'Desmarcar':'Concluir'} missão" ${(missionTogglePending||future)?'disabled':''}>${done?'✓':''}</button>
-    <div><div class="mission-title">${escapeHtml(item.title)}</div><div class="mission-meta">${item.time} · ${categoryLabels[item.category]||'Outro'}${item.note?` · ${escapeHtml(item.note)}`:''}${future?' · Programada':''}</div><input class="mission-note-input" data-mission-note="${item.id}" value="${escapeHtml(note)}" placeholder="Observação desta missão (opcional)" ${future?'disabled':''}/></div>
+  const done=isDone(item.id,key),rank=getMissionRank(item),note=getMissionNote(item.id,key),future=key>dateKey(),lockedPast=key<dateKey()&&!canEditPastMissions(),locked=future||lockedPast;
+  return `<div class="mission-item ${done?'done':''}${future?' future':''}${lockedPast?' locked-past':''}">
+    <button class="mission-check" data-mission-id="${item.id}" aria-label="${future?'Missão futura':lockedPast?'Dia encerrado':done?'Desmarcar':'Concluir'} missão" ${(missionTogglePending||locked)?'disabled':''}>${done?'✓':''}</button>
+    <div><div class="mission-title">${escapeHtml(item.title)}</div><div class="mission-meta">${item.time} · ${categoryLabels[item.category]||'Outro'}${item.note?` · ${escapeHtml(item.note)}`:''}${future?' · Programada':lockedPast?' · Histórico bloqueado':''}</div><input class="mission-note-input" data-mission-note="${item.id}" value="${escapeHtml(note)}" placeholder="Observação desta missão (opcional)" ${locked?'disabled':''}/></div>
     <div class="mission-rank">${rank}<small>+${item.aura}</small></div>
   </div>`;
 }
@@ -830,6 +872,7 @@ async function shareProgress(){
 // ================================================================
 function setupRoutine(){
   renderWeekPlanner();
+  renderRoutineCalendar();
   const picker=document.getElementById('weekdayPicker');
   picker.innerHTML=weekLabels.map((d,i)=>`<button type="button" class="day-toggle ${i>=1&&i<=5?'active':''}" data-day="${i}">${d}</button>`).join('');
   picker.onclick=e=>{const b=e.target.closest('.day-toggle');if(b&&!b.disabled)b.classList.toggle('active')};
@@ -872,6 +915,23 @@ function setupRoutine(){
   document.getElementById('clearRoutine').onclick=clearRoutine;
   document.getElementById('markWeekReady').onclick=markWeekReady;
   renderRoutineList();
+}
+
+function renderRoutineCalendar(){
+  const start=planningWeekStart(),end=weekEndKey(start);
+  if(selectedRoutineDate<start||selectedRoutineDate>end)selectedRoutineDate=start;
+  document.getElementById('routineCalendarRange').textContent=`${formatShortDate(start)} — ${formatShortDate(end)}`;
+  const startDate=parseLocalDate(start),days=[];
+  for(let i=0;i<7;i++){
+    const d=new Date(startDate);d.setDate(d.getDate()+i);
+    const key=dateKey(d),items=itemsForDate(key),aura=items.reduce((sum,item)=>sum+Number(item.aura||0),0),selected=key===selectedRoutineDate;
+    days.push(`<button type="button" class="routine-calendar-day${selected?' selected':''}${key===dateKey()?' today':''}" data-routine-date="${key}" aria-pressed="${selected}"><span>${escapeHtml(d.toLocaleDateString('pt-BR',{weekday:'short'}).replace('.','').toUpperCase())}</span><strong>${d.getDate()}</strong><small>${items.length} missões · ${aura} aura</small></button>`);
+  }
+  document.getElementById('routineWeekCalendar').innerHTML=days.join('');
+  document.querySelectorAll('[data-routine-date]').forEach(button=>button.onclick=()=>{selectedRoutineDate=button.dataset.routineDate;renderRoutineCalendar()});
+  const items=itemsForDate(selectedRoutineDate),selected=parseLocalDate(selectedRoutineDate),agenda=document.getElementById('routineDayAgenda');
+  const title=capitalize(selected.toLocaleDateString('pt-BR',{weekday:'long'}));
+  agenda.innerHTML=`<div class="routine-day-agenda-head"><strong>${escapeHtml(title)} · ${formatDate(selectedRoutineDate)}</strong><span>${items.length} missões programadas</span></div>${items.length?items.map(item=>`<div class="routine-calendar-entry"><time>${escapeHtml(item.time)}</time><div><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(categoryLabels[item.category]||'Outro')}${item.note?` · ${escapeHtml(item.note)}`:''}</small></div><em>+${Number(item.aura||0)}</em></div>`).join(''):'<div class="empty-state">Nenhuma missão programada para este dia.</div>'}`;
 }
 
 function renderWeekPlanner(){
@@ -1278,6 +1338,19 @@ async function init(){
   document.getElementById('logoutBtn').addEventListener('click',handleLogout);
   document.getElementById('closeLevelUpBtn').addEventListener('click',closeLevelUp);
   document.getElementById('badgeAdminPassword').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('unlockBadgesBtn').click()});
+  document.getElementById('cancelPastDayUnlockBtn').addEventListener('click',()=>document.getElementById('pastDayPasswordOverlay').setAttribute('hidden',''));
+  document.getElementById('unlockPastDayBtn').addEventListener('click',async()=>{
+    const input=document.getElementById('pastDayAdminPassword'),password=input.value;
+    if(!password){toast('Informe a senha do Sensei.');return;}
+    const result=await api('POST','/api/badges/unlock',{password});
+    if(!result?.unlocked)return;
+    pastMissionEditExpiresAt=Number(result.expiresAt)||0;
+    input.value='';
+    document.getElementById('pastDayPasswordOverlay').setAttribute('hidden','');
+    if(route==='home')setupHome();
+    toast('Correção do histórico liberada por 10 minutos.');
+  });
+  document.getElementById('pastDayAdminPassword').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('unlockPastDayBtn').click()});
 
   // Render inicial
   render();
